@@ -1,0 +1,32 @@
+.logo {
+  width: 120px;
+  height: 31px;
+  background: rgba(255,255,255,0.2);
+  margin: 16px 64px 16px 0;
+  text-align: center;
+  float: left;
+}
+
+.logo-text {
+  width: 120px;
+  height: 31px;
+  display: inline-block;
+  /* margin: 16px 64px 16px 0; */
+  /* line-height: 63px; */
+  color: white;
+  letter-spacing: 0.7em;
+  text-transform: uppercase;
+  font-size: 16px;
+  font-weight: bold;
+  float: left;
+  user-select: none;
+}
+
+.menu {
+  line-height: 32px;
+  margin: 18px 24px;
+}
+
+.menu-item {
+  margin: 0 30px;
+}

@@ -1,0 +1,66 @@
+archivesBaseName = 'client'
+
+task copyJar(dependsOn: ":web:build") {
+    doLast {
+        copy {
+            println 'copy web-version.jar'
+            println 'version is ' + version
+            from('../web/build/libs/web-' + version + '.jar')
+            into('lib')
+            rename {
+                'tool.jar'
+
+            }
+        }
+    }
+}
+
+task npmInstall(type: Exec) {
+    println("execute npmInstall")
+    commandLine "npm", "install"
+}
+npmInstall.dependsOn copyJar
+
+task npmBuild(type: Exec, dependsOn: npmInstall) {
+    println("execute npmBuild")
+    commandLine "npm", "run", "build"
+}
+npmBuild.dependsOn npmInstall
+
+task npmPackage(type: Exec) {
+    println("execute npmPackage")
+    copy {
+        println 'copy web-version.jar'
+        println 'version is ' + version
+        from('../web/build/libs/web-' + version + '.jar')
+        into('lib')
+        rename {
+            'tool.jar'
+        }
+    }
+    commandLine "npm", "run", "packageDarwin"
+}
+npmPackage.dependsOn npmBuild
+//执行gradle clean的时候，删除lib目录
+clean.doLast {
+    println("delete lib directory")
+    File libDir = new File(projectDir.getAbsolutePath() + "/lib")
+    libDir.deleteDir()
+}
+
+//本项目的build，依赖web项目的build
+build.dependsOn npmPackage
+
+//build成功后，
+build.doLast {
+//    copy {
+//        println 'copy web-version.jar'
+//        println 'version is ' + version
+//        from('../web/build/libs/web-' + version + '.jar')
+//        into('lib')
+//        rename {
+//            'tool.jar'
+//        }
+//    }
+}
+

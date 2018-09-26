@@ -1,0 +1,41 @@
+.tablecell {
+  padding: 0 !important;
+  margin: 0 !important;
+  height: 49px !important;
+  white-space: nowrap;
+  /* background: rgb(103, 238, 235); */
+}
+
+.table-row {
+  padding: 0 !important;
+  height: 50px !important;
+}
+
+/**
+ * 新增加值的颜色
+ */
+.new-val {
+  background: rgb(103, 238, 235);
+}
+
+/**
+ * 删除值的背景
+ */
+.del-val {
+  background: rgb(255, 184, 184);
+  color: black;
+}
+
+/**
+ * 值发生改变的背景
+ */
+.change-val {
+  background: rgb(128, 207, 251);
+}
+
+/**
+ * 值未发生改变
+ */
+.no-change {
+  background: rgba(128, 207, 251, 0.5);
+}

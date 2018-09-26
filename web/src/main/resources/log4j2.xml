@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="ERROR">
+    <Properties>
+        <Property name="log-path">${sys:user.home}/siber_data/logs</Property>
+        <Property name="log-name">siber</Property>
+    </Properties>
+    <Appenders>
+        <Console name="console" target="SYSTEM_OUT">
+            <PatternLayout charset="UTF-8"
+                           pattern="[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1}[%L] : %msg%n"/>
+        </Console>
+
+        <RollingFile name="RollingFile" fileName="${log-path}/${log-name}.log"
+                     filePattern="${log-path}/${log-name}-%d{yyyy-MM-dd}-%i.log">
+            <PatternLayout charset="UTF-8">
+                <pattern>[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1}[%L] : %msg%n</pattern>
+            </PatternLayout>
+            <Policies>
+                <SizeBasedTriggeringPolicy size="10 MB"/>
+            </Policies>
+            <DefaultRolloverStrategy max="20"/>
+        </RollingFile>
+    </Appenders>
+    <Loggers>
+
+        <Root level="info" additivity="true">
+        <!--<Root level="error" additivity="true">-->
+            <AppenderRef ref="console"/>
+            <appender-ref ref="RollingFile"/>
+        </Root>
+
+        <!--<logger name="org.springframework.core" level="debug">-->
+            <!--<AppenderRef ref="console"/>-->
+        <!--</logger>-->
+        <!--<logger name="org.springframework.beans" level="debug">-->
+            <!--<AppenderRef ref="console"/>-->
+        <!--</logger>-->
+        <!--<logger name="org.springframework.context" level="debug">-->
+            <!--<AppenderRef ref="console"/>-->
+        <!--</logger>-->
+        <!--<logger name="org.springframework.web" level="debug">-->
+            <!--<AppenderRef ref="console"/>-->
+        <!--</logger>-->
+        <!--<logger name="org.springframework.security" level="debug">-->
+            <!--<AppenderRef ref="console"/>-->
+        <!--</logger>-->
+        <!--<logger name="org.jboss.netty" level="debug">-->
+            <!--<AppenderRef ref="console"/>-->
+        <!--</logger>-->
+        <!--<logger name="org.apache.http" level="debug">-->
+            <!--<AppenderRef ref="console"/>-->
+        <!--</logger>-->
+        <!--<logger name="com.ibatis.common.jdbc.SimpleDataSource" level="debug">-->
+            <!--<AppenderRef ref="console"/>-->
+        <!--</logger>-->
+
+    </Loggers>
+</Configuration>

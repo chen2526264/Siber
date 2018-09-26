@@ -1,0 +1,11 @@
+server/target/*
+client/lib
+client/build
+client/node_modules
+client/dist
+.idea
+**/*.iml
+dist
+.gradle
+out
+build

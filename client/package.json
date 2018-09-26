@@ -1,0 +1,38 @@
+{
+  "name": "Siber",
+  "version": "0.0.4",
+  "private": true,
+  "main": "main.js",
+  "homepage": ".",
+  "dependencies": {
+    "decompress-zip": "^0.3.1",
+    "request": "^2.83.0",
+    "mkdirp": "^0.5.1",
+    "electron-log": "^2.2.14"
+  },
+  "scripts": {
+    "start": "react-app-rewired start",
+    "build": "react-app-rewired build",
+    "test": "react-app-rewired test --env=jsdom",
+    "eject": "react-scripts eject",
+    "electron": "electron .",
+    "package": "npm run packageDarwin && npm run packageWin32 && npm run packageWin64",
+    "packageDarwin": "electron-packager . 'Siber' --platform=darwin --arch=x64  --out=../dist --electron-version=1.8.4 --overwrite --ignore=\"(dist|src|public|etc|img|.idea|config-overrides.js|package-lock.json|yarn.lock|yarn-error.log)\" --icon=img/gold.icns",
+    "packageWin32": "electron-packager . 'Siber' --platform=win32 --arch=ia32  --out=../dist --electron-version=1.8.4 --overwrite --ignore=\"(dist|src|public|etc|img|.idea|config-overrides.js|package-lock.json|yarn.lock|yarn-error.log)\" --icon=img/gold.ico",
+    "packageWin64": "electron-packager . 'Siber' --platform=win32 --arch=x64  --out=../dist --electron-version=1.8.4 --overwrite --ignore=\"(dist|src|public|etc|img|.idea|config-overrides.js|package-lock.json|yarn.lock|yarn-error.log)\" --icon=img/gold.ico",
+    "packageAll": "electron-packager . 'Siber' --all  --out=../dist --electron-version=1.8.4 --overwrite --ignore=\"(dist|src|public|etc|img|.idea|config-overrides.js|package-lock.json|yarn.lock|yarn-error.log)\" --icon=img/gold.ico",
+    "packageLinux": "electron-packager . 'Siber' --platform=linux --arch=x64 --out=../dist --electron-version=1.8.4 --overwrite --ignore=\"(dist|src|public|etc|config-overrides.js|package-lock.json|yarn.lock|yarn-error.log)\""
+  },
+  "devDependencies": {
+    "babel-plugin-import": "^1.6.5",
+    "react-app-rewired": "^1.5.0",
+    "electron-packager": "^11.1.0",
+    "electron": "^1.8.4",
+    "antd": "^3.2.3",
+    "react": "^16.2.0",
+    "react-custom-scrollbars": "^4.2.1",
+    "react-dom": "^16.2.0",
+    "react-router-dom": "^4.2.2",
+    "react-scripts": "1.1.1"
+  }
+}
